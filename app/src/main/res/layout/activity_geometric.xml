@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:padding="16dp"
+    tools:context=".GeometricActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Back"
+            android:backgroundTint="@color/dark_gray"
+            android:textColor="@color/white"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Geometric Calculation"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose Operation:"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"/>
+
+        <RadioGroup
+            android:id="@+id/rg_operation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/rb_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Area"
+                android:textColor="@color/white"
+                android:buttonTint="@color/green"/>
+
+            <RadioButton
+                android:id="@+id/rb_perimeter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Perimeter"
+                android:textColor="@color/white"
+                android:buttonTint="@color/green"
+                android:layout_marginStart="16dp"/>
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose Shape:"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"/>
+
+        <RadioGroup
+            android:id="@+id/rg_shape"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/rb_square"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Square"
+                android:textColor="@color/white"
+                android:buttonTint="@color/green"/>
+
+            <RadioButton
+                android:id="@+id/rb_rectangle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Rectangle"
+                android:textColor="@color/white"
+                android:buttonTint="@color/green"/>
+
+            <RadioButton
+                android:id="@+id/rb_triangle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Triangle"
+                android:textColor="@color/white"
+                android:buttonTint="@color/green"/>
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/inputs_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <EditText
+                android:id="@+id/et_input1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Side"
+                android:textColorHint="@color/light_gray"
+                android:textColor="@color/white"
+                android:inputType="numberDecimal"
+                android:minHeight="48dp"/>
+
+            <EditText
+                android:id="@+id/et_input2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Height"
+                android:textColorHint="@color/light_gray"
+                android:textColor="@color/white"
+                android:inputType="numberDecimal"
+                android:minHeight="48dp"
+                android:visibility="gone"/>
+
+            <EditText
+                android:id="@+id/et_input3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Side 3"
+                android:textColorHint="@color/light_gray"
+                android:textColor="@color/white"
+                android:inputType="numberDecimal"
+                android:minHeight="48dp"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_calculate_geo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calculate"
+            android:backgroundTint="@color/green"
+            android:layout_marginTop="24dp"/>
+
+        <TextView
+            android:id="@+id/tv_geo_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textAlignment="center"
+            android:layout_marginTop="16dp"/>
+
+    </LinearLayout>
+</ScrollView>

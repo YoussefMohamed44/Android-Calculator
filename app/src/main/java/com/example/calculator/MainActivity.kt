@@ -1,5 +1,6 @@
 package com.example.calculator
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
@@ -46,8 +47,13 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btn_res).setOnClickListener { onEqualClick() }
         findViewById<Button>(R.id.btn_C).setOnClickListener { onClearClick() }
         findViewById<ImageButton>(R.id.btn_del).setOnClickListener { onBackspaceClick() }
-        findViewById<Button>(R.id.btn_or).setOnClickListener { onNegateClick() }
         findViewById<Button>(R.id.btn_paren).setOnClickListener { onBracketClick() }
+
+        // Geometric feature added
+        findViewById<Button>(R.id.btn_geometric).setOnClickListener {
+            val intent = Intent(this, GeometricActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun onNumberClick(value: String) {
@@ -125,42 +131,6 @@ class MainActivity : AppCompatActivity() {
                 textView.text = "0"
                 isNewOperation = true
             }
-        }
-    }
-
-    private fun onNegateClick() {
-        val text = textView.text.toString()
-        if (text.isEmpty()) {
-            textView.append("-")
-            isNewOperation = false
-            return
-        }
-        
-        // Find split point for last number
-        var i = text.length - 1
-        while (i >= 0 && (text[i].isDigit() || text[i] == '.')) {
-            i--
-        }
-        
-        // i is index of operator or -1
-        // If i points to a '-' and it's a unary minus (start of string or after another op)
-        if (i >= 0 && text[i] == '-') {
-             // check if it is unary
-             val prev = if (i > 0) text[i-1] else ' '
-             if (i == 0 || prev in listOf('+', '-', '×', '÷', '(')) {
-                 // Remove the minus
-                 textView.text = text.substring(0, i) + text.substring(i+1)
-                 return
-             }
-        }
-
-        // Otherwise insert minus
-        if (isNewOperation) {
-            textView.text = "-"
-            isNewOperation = false
-        } else {
-            // Insert after the operator
-            textView.text = text.substring(0, i + 1) + "-" + text.substring(i + 1)
         }
     }
 
